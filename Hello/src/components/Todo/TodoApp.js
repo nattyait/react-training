@@ -16,7 +16,9 @@ class TodoApp extends React.Component {
     this.state = {
       todos: [
         createTodo("Todo 1"),
-        createTodo("Todo 2")
+        createTodo("Todo 2"),
+        createTodo("Todo 3"),
+        createTodo("Todo 4")
       ],
 
     }
@@ -27,7 +29,7 @@ class TodoApp extends React.Component {
         <h1>Todo App</h1>
         <TodoInput />
         <CompletionToggle />
-        <TodoList />
+        <TodoList todos={this.state.todos}/>
       </div>
     )
   }

@@ -3,7 +3,7 @@ import React from 'react'
 class TodoListItem extends React.Component{
   render(){
     return (
-          <li>Hello</li>
+          <li>{this.props.todo.text}</li>
 
     )
   }

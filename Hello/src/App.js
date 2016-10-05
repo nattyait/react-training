@@ -5,7 +5,7 @@ import './App.css';
 
 import Hello from './components/Hello'
 import Counter from './components/Counter'
-import TodoApp from './components/TodoApp'
+import TodoApp from './components/Todo/TodoApp'
 
 class App extends Component {
 
