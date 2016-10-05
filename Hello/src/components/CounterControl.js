@@ -28,4 +28,12 @@ class CounterControl extends React.Component{
     )
   }
 }
+
+//set อันนี้ไว้ จะทำให้ไม่ลืม parse prop เข้ามา
+//ควรเขียนตัวนี้ไว้เป็น document แล้วมันจะขึ้นใน console ด้วยถ้าไม่ส่งมา
+CounterControl.propTypes = {
+  currentValue: React.PropTypes.number.isRequired,
+  onValueChange: React.PropTypes.func.isRequired
+}
+
 export default CounterControl
