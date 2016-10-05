@@ -15,6 +15,8 @@ class TodoApp extends React.Component {
   constructor(props) {
     super(props)
     this.onTodoInputSubmit = this.onTodoInputSubmit.bind(this)
+    this.onToggleTodo = this.onToggleTodo.bind(this)
+    this.onCompletionToggle = this.onCompletionToggle.bind(this)
     this.state = {
       todos: [
         createTodo("Todo 1"),
@@ -22,6 +24,7 @@ class TodoApp extends React.Component {
         createTodo("Todo 3"),
         createTodo("Todo 4")
       ],
+      showCompletion: true
     }
   }
   onTodoInputSubmit(text) {
@@ -30,7 +33,6 @@ class TodoApp extends React.Component {
     //todo.push(todo)
     this.setState({
       todos: todos,
-      showCompletion: true
     })
   }
 
@@ -40,9 +42,9 @@ class TodoApp extends React.Component {
   }
 
 //เอาไว้เช็คว่าเราควร render หรือไม่ควร render
-  shouldComponentUpdate(nextProps, nextState) {
-    return !(nextState.todos === this.state.todos)
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return !(nextState.todos === this.state.todos)
+  // }
 
   onCompletionToggle(event){
     this.setState({
@@ -57,11 +59,11 @@ class TodoApp extends React.Component {
         <TodoInput onTodoInputSubmit={this.onTodoInputSubmit}/>
         <CompletionToggle
           show={this.state.showCompletion}
-          onValueChange={this.onCompletionToggle.bind(this)}/>
+          onValueChange={this.onCompletionToggle}/>
         <TodoList
           showCompletion={this.state.showCompletion}
           todos={this.state.todos}
-          onToggleTodo={this.onToggleTodo.bind(this)}
+          onToggleTodo={this.onToggleTodo}
 
           />
       </div>
