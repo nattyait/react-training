@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import CounterControl from './CounterControl'
+
 class Counter extends Component{
   constructor(props){
     super(props)
@@ -29,9 +31,10 @@ class Counter extends Component{
     return (
       <div>
         <h1>Counter: {this.state.counter}</h1>
-        <button onClick={this.onClickIncrease}>+</button>
-        <button onClick={this.onClickDecrease}>-</button>
-        <button onClick={this.onClickReset}>reset</button>
+        <CounterControl
+          onIncrease={this.onClickIncrease}
+          onDecrease={this.onClickDecrease}
+          onReset={this.onClickReset} />
       </div>
     )
   }
