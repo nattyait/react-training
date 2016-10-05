@@ -6,7 +6,8 @@ import TodoList from './TodoList'
 function createTodo(text){
   return {
     id: Date.now(),
-    text: text
+    text: text,
+    isCompleted: true
   }
 }
 
@@ -31,13 +32,28 @@ class TodoApp extends React.Component {
       todos: todos
     })
   }
+
+  onToggleTodo(todo){
+    todo.isCompleted = !todo.isCompleted
+    this.forceUpdate()
+  }
+
+//เอาไว้เช็คว่าเราควร render หรือไม่ควร render
+  shouldComponentUpdate(nextProps, nextState) {
+    return !(nextState.todos === this.state.todos)
+  }
+
   render(){
     return (
       <div className = "todo-app">
         <h1>Todo App</h1>
         <TodoInput onTodoInputSubmit={this.onTodoInputSubmit}/>
         <CompletionToggle />
-        <TodoList todos={this.state.todos}/>
+        <TodoList
+          todos={this.state.todos}
+          onToggleTodo={this.onToggleTodo.bind(this)}
+
+          />
       </div>
     )
   }

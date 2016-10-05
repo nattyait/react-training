@@ -7,7 +7,9 @@ class TodoInput extends React.Component{
   }
   onSubmit(event){
     event.preventDefault()
-    const text = this.refs.input.value
+    const input = this.refs.input
+    const text = input.value
+    input.value = ""
     if(text.length === 0){
       return
     }
