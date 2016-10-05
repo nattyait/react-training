@@ -4,7 +4,9 @@ class CompletionToggle extends React.Component{
   render(){
     return (
       <div>
-        <input type="checkbox" checked="true"/>
+        <input type="checkbox"
+          checked={this.props.show}
+          onChange={this.props.onValueChange}/>
         Show Completed
       </div>
     )

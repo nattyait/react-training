@@ -7,7 +7,7 @@ function createTodo(text){
   return {
     id: Date.now(),
     text: text,
-    isCompleted: true
+    isCompleted: false
   }
 }
 
@@ -29,7 +29,8 @@ class TodoApp extends React.Component {
     let todos = this.state.todos.concat([todo])
     //todo.push(todo)
     this.setState({
-      todos: todos
+      todos: todos,
+      showCompletion: true
     })
   }
 
@@ -43,13 +44,22 @@ class TodoApp extends React.Component {
     return !(nextState.todos === this.state.todos)
   }
 
+  onCompletionToggle(event){
+    this.setState({
+      showCompletion: !this.state.showCompletion
+    })
+  }
+
   render(){
     return (
       <div className = "todo-app">
         <h1>Todo App</h1>
         <TodoInput onTodoInputSubmit={this.onTodoInputSubmit}/>
-        <CompletionToggle />
+        <CompletionToggle
+          show={this.state.showCompletion}
+          onValueChange={this.onCompletionToggle.bind(this)}/>
         <TodoList
+          showCompletion={this.state.showCompletion}
           todos={this.state.todos}
           onToggleTodo={this.onToggleTodo.bind(this)}
 
