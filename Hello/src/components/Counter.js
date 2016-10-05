@@ -10,21 +10,7 @@ class Counter extends Component{
       counter: 0
     }
   }
-  // onClickIncrease() {
-  //   this.setState({
-  //     counter: this.state.counter+1
-  //   })
-  // }
-  // onClickDecrease() {
-  //   this.setState({
-  //     counter: this.state.counter-1
-  //   })
-  // }
-  // onClickReset(){
-  //   this.setState({
-  //     counter: 0
-  //   })
-  // }
+  //ตัว component นี้ไม่จำเป็นต้องรู้่วาทำยังงัย แค่รอรับค่าเปลี่ยนแปลงแล้วเอาไป setState
   onValueChange(value){
     this.setState({
       counter: value
