@@ -5,6 +5,7 @@ import './index.css';
 
 import { createStore } from 'redux'
 import counterReducer from './reducers/counterReducer'
+import Provider from './components/Provider'
 
 const store = createStore(
   counterReducer, 10,
@@ -13,6 +14,8 @@ const store = createStore(
 
 ReactDOM.render(
   //ส่ง store ไป app
-  <App store={store}/>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
