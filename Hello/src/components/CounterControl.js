@@ -16,15 +16,18 @@ class CounterControl extends React.Component{
 
   onClickIncrease(){
     //this.props.onValueChange(this.props.currentValue + 1)
-    this.props.store.dispatch(increaseCounter())
+    //this.props.store.dispatch(increaseCounter())
+    this.context.store.dispatch(increaseCounter())
   }
   onClickDecrease(){
     //this.props.onValueChange(this.props.currentValue - 1)
-    this.props.store.dispatch(decreaseCounter())
+    //this.props.store.dispatch(decreaseCounter())
+    this.context.store.dispatch(decreaseCounter())
   }
   onClickReset(){
     //this.props.onValueChange(0)
-    this.props.store.dispatch(resetCounter())
+    //this.props.store.dispatch(resetCounter())
+    this.context.store.dispatch(resetCounter())
   }
 
   render(){
@@ -43,6 +46,10 @@ class CounterControl extends React.Component{
 CounterControl.propTypes = {
   currentValue: React.PropTypes.number.isRequired,
   onValueChange: React.PropTypes.func.isRequired
+}
+
+CounterControl.contextTypes = {
+  store: React.PropTypes.object
 }
 
 export default CounterControl

@@ -6,7 +6,8 @@ class Counter extends Component{
 
   //ให้ view มา subscribe store ไม่งั้นบนหน้าจอไม่เปลีย่น
   componentDidMount() {
-    this.unsubscribe = this.props.store.subscribe( () => {
+    //this.unsubscribe = this.props.store.subscribe( () => {
+    this.unsubscribe = this.context.store.subscribe ( () => {
       this.forceUpdate()
     })
   }
@@ -17,7 +18,10 @@ class Counter extends Component{
   render(){
 
     // get state from store
-    const { store } = this.props
+    // const { store } = this.props
+
+    // get state from context
+    const { store } = this.context
     const counter = store.getState()
 
     return (
@@ -29,6 +33,10 @@ class Counter extends Component{
       </div>
     )
   }
+}
+
+Counter.contextTypes = {
+  store: React.PropTypes.object
 }
 
 export default Counter

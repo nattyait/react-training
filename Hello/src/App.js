@@ -9,14 +9,26 @@ import TodoApp from './components/Todo/TodoApp'
 
 class App extends Component {
 
+// ลูกเรียก getContext มาแล้วจะได้ store คืนไป
+  getChildContext() {
+    return {
+      store: this.props.store
+    }
+  }
+
   render() {
     return (
       <div className="App">
         {/* <TodoApp /> */}
         {/* เอา store จาก app ส่งไป counter */}
-        <Counter store={this.props.store}/>
+        {/* ถ้าใช้ context ก็เอา store ที่ parse เป็น props ออกไปเลย */}
+        <Counter />
       </div>
     );
   }
+}
+
+App.childContextTypes = {
+  store: React.PropTypes.object
 }
 export default App;
