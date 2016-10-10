@@ -42,9 +42,10 @@ class TodoApp extends React.Component {
   }
 
 //เอาไว้เช็คว่าเราควร render หรือไม่ควร render
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return !(nextState.todos === this.state.todos)
-  // }
+//  shouldComponentUpdate(nextProps, nextState) {
+    //return !(nextProps.show === this.props.show)
+
+//  }
 
   onCompletionToggle(event){
     this.setState({
