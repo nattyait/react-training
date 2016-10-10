@@ -5,7 +5,8 @@ import './index.css';
 
 import { createStore } from 'redux'
 import counterReducer from './reducers/counterReducer'
-import Provider from './components/Provider'
+//import Provider from './components/Provider'
+import { Provider } from 'react-redux'
 
 const store = createStore(
   counterReducer, 10,
