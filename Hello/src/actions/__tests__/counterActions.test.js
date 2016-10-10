@@ -21,7 +21,7 @@ describe("Counter Actions", () => {
     const expected = {
       type: DECREASE_COUNTER
     }
-
+    expect(actual).toEqual(expected)
   })
 
   it("should create RESET_COUNTER", () => {
@@ -29,5 +29,6 @@ describe("Counter Actions", () => {
     const expected = {
       type: RESET_COUNTER
     }
+    expect(actual).toEqual(expected)
   })
 })
