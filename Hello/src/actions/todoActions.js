@@ -9,9 +9,9 @@ export function createTodo(text) {
 }
 
 export const TOGGLE_DONE = 'TOGGLE_DONE'
-export function toggleDone(id) {
+export function toggleDone(index) {
   return{
     type: TOGGLE_DONE,
-    id: id
+    index: index
   }
 }

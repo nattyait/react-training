@@ -21,7 +21,7 @@ describe('Todo Actions', () => {
     const actual = toggleDone(1)
     const expected = {
       type: TOGGLE_DONE,
-      id: 1
+      index: 1
     }
     expect(actual).toEqual(expected)
   })

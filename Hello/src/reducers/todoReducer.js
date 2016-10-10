@@ -14,6 +14,18 @@ export default function todoReducer(state = [], action) {
       //}])
       }]
 
+      case 'TOGGLE_DONE':
+      //state[action.index].isCompleted = true
+      const newState = state.map((todo, index) => {
+        if (index != action.index) return todo
+
+        return {
+          text: todo.text,
+          isCompleted: !todo.isCompleted
+        }
+      })
+      return newState
+
       default:
         return state
   }
