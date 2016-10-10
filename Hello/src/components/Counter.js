@@ -3,6 +3,13 @@ import React, { Component } from 'react'
 import CounterControl from './CounterControl'
 
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import {
+  increaseCounter,
+  decreaseCounter,
+  resetCounter
+} from '../actions/counterActions'
 
 class Counter extends Component{
 
@@ -35,14 +42,14 @@ class Counter extends Component{
         <h1>Counter: {counter}</h1>
         {/* ตัวนี้เป็นตัว dispatch action เลยส่ง store ให้มันด้วย */}
         {/* <CounterControl store={store} /> */}
-        <CounterControl />
+        <CounterControl
+          increaseCounter = {this.props.increaseCounter}
+          decreaseCounter = {this.props.decreaseCounter}
+          resetCounter = {this.props.resetCounter}
+        />
       </div>
     )
   }
-}
-
-Counter.contextTypes = {
-  store: React.PropTypes.object
 }
 
 function mapStoreStateToProps(state){
@@ -51,8 +58,20 @@ function mapStoreStateToProps(state){
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    // increaseCounter: () => {
+    //   dispatch(increaseCounter()) // key: function(dispatch(function))
+    // }
+    //after import bindActionCreators
+    increaseCounter: bindActionCreators(increaseCounter, dispatch),
+    decreaseCounter: bindActionCreators(decreaseCounter, dispatch),
+    resetCounter: bindActionCreators(resetCounter, dispatch)
+  }
+}
+
 //const connectedComponent = connect()(Counter)
 // บรรทัดนี้คือ subscribe store ให้เอง ทำให้ไม่่ต้องมี componentDidMount / componentWillUnmount ออกได้
 // ส่ง state เป็น prop
 // connect เอา store ออกมาจาก context
-export default connect(mapStoreStateToProps)(Counter)
+export default connect(mapStoreStateToProps, mapDispatchToProps)(Counter)

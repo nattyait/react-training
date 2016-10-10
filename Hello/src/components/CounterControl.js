@@ -1,14 +1,6 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
-import {
-  increaseCounter,
-  decreaseCounter,
-  resetCounter
-} from '../actions/counterActions'
-
 class CounterControl extends React.Component{
   // constructor(props){
   //   super(props)
@@ -61,16 +53,4 @@ class CounterControl extends React.Component{
 //   store: React.PropTypes.object
 // }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    // increaseCounter: () => {
-    //   dispatch(increaseCounter()) // key: function(dispatch(function))
-    // }
-    //after import bindActionCreators
-    increaseCounter: bindActionCreators(increaseCounter, dispatch),
-    decreaseCounter: bindActionCreators(decreaseCounter, dispatch),
-    resetCounter: bindActionCreators(resetCounter, dispatch)
-  }
-}
-
-export default connect(null, mapDispatchToProps)(CounterControl)
+export default CounterControl
