@@ -54,7 +54,7 @@ class Counter extends Component{
 
 function mapStoreStateToProps(state){
   return {
-    counter: state
+    counter: state.counter
   }
 }
 

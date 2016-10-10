@@ -4,12 +4,13 @@ import App from './App';
 import './index.css';
 
 import { createStore } from 'redux'
-import counterReducer from './reducers/counterReducer'
+//import counterReducer from './reducers/counterReducer'
+import rootReducer from './reducers'
 //import Provider from './components/Provider'
 import { Provider } from 'react-redux'
 
 const store = createStore(
-  counterReducer, 10,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
