@@ -11,7 +11,8 @@ describe('Todo Actions', () => {
     const actual = createTodo('Hello')
     const expected = {
       type: CREATE_TODO,
-      text: 'Hello'
+      text: 'Hello',
+      isCompleted: false
     }
 
     expect(actual).toEqual(expected)
