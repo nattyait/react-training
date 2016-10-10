@@ -3,26 +3,29 @@ import React, { Component } from 'react'
 import CounterControl from './CounterControl'
 
 class Counter extends Component{
-  constructor(props){
-    super(props)
-    this.onValueChange = this.onValueChange.bind(this)
-    this.state = {
-      counter: 0
-    }
-  }
-  //ตัว component นี้ไม่จำเป็นต้องรู้่วาทำยังงัย แค่รอรับค่าเปลี่ยนแปลงแล้วเอาไป setState
-  onValueChange(value){
-    this.setState({
-      counter: value
+
+  //ให้ view มา subscribe store ไม่งั้นบนหน้าจอไม่เปลีย่น
+  componentDidMount() {
+    this.unsubscribe = this.props.store.subscribe( () => {
+      this.forceUpdate()
     })
   }
+
+  componentWillUnmount(){
+    this.unsubscribe()
+  }
   render(){
+
+    // get state from store
+    const { store } = this.props
+    const counter = store.getState()
+
     return (
       <div>
-        <h1>Counter: {this.state.counter}</h1>
-        <CounterControl
-          currentValue={this.state.counter}
-          onValueChange={this.onValueChange} />
+        {/* เอาค่าจาก store มา show แทน บนหน้าจอก็ render ต่อกับ store แล้ว*/}
+        <h1>Counter: {counter}</h1>
+        {/* ตัวนี้เป็นตัว dispatch action เลยส่ง store ให้มันด้วย */}
+        <CounterControl store={store} />
       </div>
     )
   }

@@ -1,5 +1,11 @@
 import React from 'react'
 
+import {
+  increaseCounter,
+  decreaseCounter,
+  resetCounter
+} from '../actions/counterActions'
+
 class CounterControl extends React.Component{
   constructor(props){
     super(props)
@@ -9,13 +15,16 @@ class CounterControl extends React.Component{
   }
 
   onClickIncrease(){
-    this.props.onValueChange(this.props.currentValue + 1)
+    //this.props.onValueChange(this.props.currentValue + 1)
+    this.props.store.dispatch(increaseCounter())
   }
   onClickDecrease(){
-    this.props.onValueChange(this.props.currentValue - 1)
+    //this.props.onValueChange(this.props.currentValue - 1)
+    this.props.store.dispatch(decreaseCounter())
   }
   onClickReset(){
-    this.props.onValueChange(0)
+    //this.props.onValueChange(0)
+    this.props.store.dispatch(resetCounter())
   }
 
   render(){

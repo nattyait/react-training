@@ -13,7 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         {/* <TodoApp /> */}
-        <Counter />
+        {/* เอา store จาก app ส่งไป counter */}
+        <Counter store={this.props.store}/>
       </div>
     );
   }
