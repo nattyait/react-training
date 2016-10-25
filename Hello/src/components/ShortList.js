@@ -1,21 +1,15 @@
 import React from 'react'
 import ShortListItem from './ShortListItem'
 
-function ShortList () {
+//functon ShortList ({shots})
+function ShortList (props) {
+  const { shots } = props //deconstruct
+  const listItems = shots.map(function(shot){
+    return <ShortListItem shot={shot} key={shot.id}/>
+  })
   return (
     <div>
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
-      <ShortListItem />
+      { listItems }
     </div>
   )
 }
