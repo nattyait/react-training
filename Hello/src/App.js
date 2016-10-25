@@ -7,7 +7,7 @@ import logo from './logo.svg';
 // import Provider from './components/Provider'
 
 import Header from './components/Header'
-import ShortList from './components/ShortList'
+import PopularPage from './containers/PopularPage'
 
 
 
@@ -24,7 +24,7 @@ class App extends Component {
             <Header />
             {/* <!-- container --> */}
             <div id="main" className="container clearfix">
-                <ShortList />
+                <PopularPage />
             </div>
             {/* <!-- End Container --> */}
           </div>
