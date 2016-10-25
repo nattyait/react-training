@@ -8,6 +8,9 @@ import logo from './logo.svg';
 
 import Header from './components/Header'
 import PopularPage from './containers/PopularPage'
+import DetailPage from './containers/DetailPage'
+
+import { BrowserRouter, Match } from 'react-router'
 
 
 
@@ -15,6 +18,7 @@ class App extends Component {
 
   render() {
     return (
+      <BrowserRouter>
         <div className="App">
            {/* <TodoApp />
           {/* เอา store จาก app ส่งไป counter */}
@@ -24,11 +28,13 @@ class App extends Component {
             <Header />
             {/* <!-- container --> */}
             <div id="main" className="container clearfix">
-                <PopularPage />
+              <Match exactly pattern="/" component={PopularPage} />
+              <Match pattern="/shot/:id" component={DetailPage} />
             </div>
             {/* <!-- End Container --> */}
           </div>
         </div>
+      </BrowserRouter>
     );
   }
 }
